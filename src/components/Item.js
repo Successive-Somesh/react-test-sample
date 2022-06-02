@@ -5,7 +5,7 @@ const Item = ({item})=>{
             <p>Some data</p>
             <p>{item.name}</p>
             <p>{item.desc}</p>
-            <p>{item.status}</p>
+            <p style={item.status?{backgroundClip:'green'}:{backgroundClip:'red'}}>{item.status}</p>
         </div>
     );
 }
