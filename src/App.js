@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import AddItem from './components/AddItem';
+import Header from './components/Header';
+import ListItem from './components/ListItem';
 
-function App() {
+const App = () => {
+  const [items, setItems] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <AddItem items={items} setItems={setItems}/>
+      <ListItem items={items} />
     </div>
   );
 }
 
-export default App;
+export default React.memo(App);
