@@ -8,6 +8,7 @@ describe('Item Testing',()=>{
         render(<AddItem />);
         const inputElement = screen.getByPlaceholderText(/enter item name/i);
         const listItems = screen.queryAllByRole("list");
+        expect(inputElement.value).toBe("");
         expect(listItems.length).toBe(0);
         
         
@@ -25,7 +26,6 @@ describe('Item Testing',()=>{
         render(<App />);
         const inputElement = screen.getByPlaceholderText(/enter item name/i);
         const button = screen.getByRole("add-button");
-        //console.log(button);
 
         fireEvent.change(inputElement, {target:{value:"abcd"}});
         userEvent.click(button);
